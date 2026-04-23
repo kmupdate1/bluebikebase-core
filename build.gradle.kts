@@ -27,9 +27,11 @@ subprojects {
                 // (現状の core や math にある publishing ブロックをここに統合できます)
 
                 // 2. 「maven」という名前の成果物を自動生成
+                /*
                 withType<MavenPublication>().configureEach {
                     if (artifactId == project.name + "-kotlinMultiplatform") artifactId = project.name
                 }
+                */
             }
 
             // 3. 輸出先（Nexus）の判定と設定
