@@ -1,8 +1,7 @@
-package org.bluebikebase.core.domain.quantity
+package org.bluebikebase.core.algebra.extensions
 
-import org.bluebikebase.core.domain.quantity.model.ChronosMs
-import org.bluebikebase.core.domain.model.ScalarD
-import org.bluebikebase.core.domain.logic.sVal
+import org.bluebikebase.core.kernel.ScalarD
+import org.bluebikebase.core.quantity.ChronosMs
 
 // ミリ秒：最小単位そのまま
 val Int.ms: ChronosMs get() = ChronosMs.of(this.sVal)

@@ -1,4 +1,4 @@
-package org.bluebikebase.core.domain.model
+package org.bluebikebase.core.algebra
 
 interface Calculatable<T> {
     val zero: T

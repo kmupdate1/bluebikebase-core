@@ -1,9 +1,9 @@
-package org.bluebikebase.core.domain.logic.model
+package org.bluebikebase.core.algebra
 
-import org.bluebikebase.core.domain.quantity.model.ChronosMs
-import org.bluebikebase.core.domain.model.ScalarD
-import org.bluebikebase.core.domain.quantity.ms
+import org.bluebikebase.core.quantity.ChronosMs
+import org.bluebikebase.core.algebra.extensions.ms
 import org.bluebikebase.core.error.InvalidValidationException
+import org.bluebikebase.core.kernel.ScalarD
 
 /**
  * 寺子屋 DSL: 変化の最小単位。

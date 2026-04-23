@@ -1,12 +1,12 @@
-package org.bluebikebase.core.domain.logic.model
+package org.bluebikebase.core.algebra
 
-import org.bluebikebase.core.domain.logic.asLowerLimit
-import org.bluebikebase.core.domain.logic.discipline
-import org.bluebikebase.core.domain.model.ScalarD
-import org.bluebikebase.core.domain.model.Signum
+import org.bluebikebase.core.algebra.extensions.asLowerLimit
+import org.bluebikebase.core.algebra.extensions.discipline
 import org.bluebikebase.core.error.InvalidValidationException
 import org.bluebikebase.core.error.LawOfB3Exception
-import org.bluebikebase.core.function.validate
+import org.bluebikebase.core.rule.validate
+import org.bluebikebase.core.kernel.ScalarD
+import org.bluebikebase.core.kernel.Signum
 
 data class Vector
 @Throws(InvalidValidationException::class, LawOfB3Exception::class)

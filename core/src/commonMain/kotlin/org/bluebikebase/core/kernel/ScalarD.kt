@@ -1,7 +1,9 @@
-package org.bluebikebase.core.domain.model
+package org.bluebikebase.core.kernel
 
+import org.bluebikebase.core.algebra.Calculatable
+import org.bluebikebase.core.algebra.Scalable
 import org.bluebikebase.core.error.InvalidValidationException
-import org.bluebikebase.core.function.validate
+import org.bluebikebase.core.rule.validate
 import kotlin.jvm.JvmInline
 import kotlin.math.abs
 import kotlin.math.roundToLong

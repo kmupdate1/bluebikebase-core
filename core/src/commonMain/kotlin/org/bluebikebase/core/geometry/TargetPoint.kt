@@ -1,8 +1,8 @@
-package org.bluebikebase.core.domain.logic.model
+package org.bluebikebase.core.geometry
 
-import org.bluebikebase.core.domain.logic.inclusiveDisciplineBy
-import org.bluebikebase.core.domain.logic.asLowerLimit
-import org.bluebikebase.core.domain.model.ScalarD
+import org.bluebikebase.core.algebra.extensions.inclusiveDisciplineBy
+import org.bluebikebase.core.algebra.extensions.asLowerLimit
+import org.bluebikebase.core.kernel.ScalarD
 import org.bluebikebase.core.error.LawOfB3Exception
 
 data class TargetPoint(val at: ScalarD, val epsilon: ScalarD = ScalarD.MILLI) {

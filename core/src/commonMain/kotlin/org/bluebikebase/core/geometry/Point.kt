@@ -1,4 +1,4 @@
-package org.bluebikebase.core.domain.model
+package org.bluebikebase.core.geometry
 
 import kotlin.jvm.JvmInline
 

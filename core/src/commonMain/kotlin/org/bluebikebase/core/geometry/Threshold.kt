@@ -1,10 +1,10 @@
-package org.bluebikebase.core.domain.logic.model
+package org.bluebikebase.core.geometry
 
-import org.bluebikebase.core.domain.model.ScalarD
-import org.bluebikebase.core.domain.model.Signum
+import org.bluebikebase.core.kernel.ScalarD
+import org.bluebikebase.core.kernel.Signum
 import org.bluebikebase.core.error.InvalidValidationException
 import org.bluebikebase.core.error.LawOfB3Exception
-import org.bluebikebase.core.function.validate
+import org.bluebikebase.core.rule.validate
 
 data class Threshold
 @Throws(InvalidValidationException::class, LawOfB3Exception::class)

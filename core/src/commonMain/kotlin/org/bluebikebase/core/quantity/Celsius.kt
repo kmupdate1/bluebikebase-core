@@ -1,11 +1,16 @@
-package org.bluebikebase.core.domain.quantity.model
+package org.bluebikebase.core.quantity
 
-import org.bluebikebase.core.domain.logic.*
-import org.bluebikebase.core.domain.logic.model.Delta
-import org.bluebikebase.core.domain.model.ScalarD
+import org.bluebikebase.core.algebra.Delta
+import org.bluebikebase.core.kernel.ScalarD
 import org.bluebikebase.core.error.InvalidValidationException
 import org.bluebikebase.core.error.LawOfB3Exception
-import org.bluebikebase.core.function.validate
+import org.bluebikebase.core.rule.validate
+import org.bluebikebase.core.algebra.extensions.asLowerLimit
+import org.bluebikebase.core.algebra.extensions.asTargetWithEpsilon
+import org.bluebikebase.core.algebra.extensions.asUpperLimit
+import org.bluebikebase.core.algebra.extensions.inclusiveDiscipline
+import org.bluebikebase.core.algebra.extensions.inclusiveDisciplineBy
+import org.bluebikebase.core.algebra.extensions.sVal
 import kotlin.jvm.JvmInline
 
 @JvmInline

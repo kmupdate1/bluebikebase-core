@@ -1,4 +1,4 @@
-package org.bluebikebase.core.function
+package org.bluebikebase.core.rule
 
 import org.bluebikebase.core.error.InvalidValidationException
 import kotlin.jvm.JvmName

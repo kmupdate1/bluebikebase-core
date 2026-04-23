@@ -1,7 +1,8 @@
-package org.bluebikebase.core.domain.model
+package org.bluebikebase.core.algebra
 
 import org.bluebikebase.core.error.InvalidValidationException
-import org.bluebikebase.core.function.validate
+import org.bluebikebase.core.rule.validate
+import org.bluebikebase.core.kernel.ScalarD
 import kotlin.jvm.JvmInline
 
 // Ratio: Rateを内包し、さらに「1.0以下」を保証する「比」

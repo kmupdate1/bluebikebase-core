@@ -1,10 +1,10 @@
-package org.bluebikebase.core.domain.logic
+package org.bluebikebase.core.algebra.extensions
 
-import org.bluebikebase.core.domain.model.ScalarD
-import org.bluebikebase.core.domain.model.Signum
-import org.bluebikebase.core.domain.logic.model.TargetPoint
-import org.bluebikebase.core.domain.logic.model.Threshold
+import org.bluebikebase.core.geometry.TargetPoint
+import org.bluebikebase.core.geometry.Threshold
 import org.bluebikebase.core.error.LawOfB3Exception
+import org.bluebikebase.core.kernel.ScalarD
+import org.bluebikebase.core.kernel.Signum
 
 /**
  * 閾値という「法」に対して、対象が「規律」を守っているかを確認する。
