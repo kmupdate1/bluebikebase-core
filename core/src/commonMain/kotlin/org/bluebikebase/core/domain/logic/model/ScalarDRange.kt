@@ -1,6 +1,6 @@
-package terakoyalabo.core.domain.logic.model
+package org.bluebikebase.core.domain.logic.model
 
-import terakoyalabo.core.domain.primitive.model.ScalarD
+import org.bluebikebase.core.domain.model.ScalarD
 
 data class ScalarDRange(val start: ScalarD, val end: ScalarD) {
 }

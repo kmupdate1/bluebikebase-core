@@ -1,15 +1,15 @@
-package terakoyalabo.core.domain.logic.model
+package org.bluebikebase.core.domain.logic.model
 
-import terakoyalabo.core.domain.logic.asLowerLimit
-import terakoyalabo.core.domain.logic.discipline
-import terakoyalabo.core.domain.primitive.model.ScalarD
-import terakoyalabo.core.domain.primitive.model.Signum
-import terakoyalabo.core.error.InvalidValidationException
-import terakoyalabo.core.error.LawOfTerakoyaException
-import terakoyalabo.core.function.validate
+import org.bluebikebase.core.domain.logic.asLowerLimit
+import org.bluebikebase.core.domain.logic.discipline
+import org.bluebikebase.core.domain.model.ScalarD
+import org.bluebikebase.core.domain.model.Signum
+import org.bluebikebase.core.error.InvalidValidationException
+import org.bluebikebase.core.error.LawOfB3Exception
+import org.bluebikebase.core.function.validate
 
 data class Vector
-@Throws(InvalidValidationException::class, LawOfTerakoyaException::class)
+@Throws(InvalidValidationException::class, LawOfB3Exception::class)
 constructor(val magnitude: ScalarD, val direction: Signum) {
     companion object {
         val STATIONARY: Vector = Vector(magnitude = ScalarD.ZERO, direction = Signum.NEUTRAL)

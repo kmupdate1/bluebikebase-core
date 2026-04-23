@@ -1,6 +1,6 @@
-package terakoyalabo.core.domain.primitive.model
+package org.bluebikebase.core.domain.model
 
-import terakoyalabo.core.error.InvalidValidationException
+import org.bluebikebase.core.error.InvalidValidationException
 
 interface Rateable {
     val scalar: ScalarD

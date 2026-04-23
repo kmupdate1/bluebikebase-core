@@ -1,6 +1,6 @@
-package terakoyalabo.core.function
+package org.bluebikebase.core.function
 
-import terakoyalabo.core.error.InvalidValidationException
+import org.bluebikebase.core.error.InvalidValidationException
 import kotlin.jvm.JvmName
 
 @Throws(InvalidValidationException::class)

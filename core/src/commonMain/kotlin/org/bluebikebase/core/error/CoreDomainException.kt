@@ -1,4 +1,4 @@
-package terakoyalabo.core.error
+package org.bluebikebase.core.error
 
 abstract class CoreDomainException(
     override val message: String,

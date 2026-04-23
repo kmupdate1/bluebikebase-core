@@ -1,7 +1,7 @@
-package terakoyalabo.core.domain.primitive.model
+package org.bluebikebase.core.domain.model
 
-import terakoyalabo.core.error.InvalidValidationException
-import terakoyalabo.core.error.LawOfTerakoyaException
+import org.bluebikebase.core.error.InvalidValidationException
+import org.bluebikebase.core.error.LawOfB3Exception
 import kotlin.jvm.JvmInline
 import kotlin.math.abs
 
@@ -27,14 +27,14 @@ value class ScalarL private constructor(val value: Long) : Scalable<ScalarL>, Ca
      * @throws InvalidValidationException
      */
     override val abs: ScalarL get() = if (value == Long.MIN_VALUE) {
-        throw LawOfTerakoyaException("Overflow in absolute value.")
+        throw LawOfB3Exception("Overflow in absolute value.")
     } else of(raw = abs(value))
 
     /**
      * @throws InvalidValidationException
      */
     override val inversion: ScalarL get() = if (value == Long.MIN_VALUE) {
-        throw LawOfTerakoyaException("Overflow in inversion: Long.MIN_VALUE cannot be inverted.")
+        throw LawOfB3Exception("Overflow in inversion: Long.MIN_VALUE cannot be inverted.")
     } else of(raw = -value)
 
 
@@ -46,7 +46,7 @@ value class ScalarL private constructor(val value: Long) : Scalable<ScalarL>, Ca
         val res = this.value + other.value
         // 加算の理：正＋正＝負、または 負＋負＝正 になったらオーバーフロー
         if (((this.value xor res) and (other.value xor res)) < ZERO.value) {
-            throw LawOfTerakoyaException("Long overflow in addition: $value + ${other.value}")
+            throw LawOfB3Exception("Long overflow in addition: $value + ${other.value}")
         }
         return of(raw = res)
     }
@@ -54,7 +54,7 @@ value class ScalarL private constructor(val value: Long) : Scalable<ScalarL>, Ca
         val res = this.value - other.value
         // 減算の理：符号が異なるもの同士を引いて、結果の符号が引かれる数と異なればオーバーフロー
         if (((this.value xor other.value) and (this.value xor res)) < ZERO.value) {
-            throw LawOfTerakoyaException("Long overflow in subtraction: $value - ${other.value}")
+            throw LawOfB3Exception("Long overflow in subtraction: $value - ${other.value}")
         }
         return of(raw = res)
     }
@@ -63,15 +63,15 @@ value class ScalarL private constructor(val value: Long) : Scalable<ScalarL>, Ca
         val res = this.value * other.value
         // 乗算の理：結果を片方で割って元に戻らなければオーバーフロー
         if (res / other.value != this.value) {
-            throw LawOfTerakoyaException("Long overflow in multiplication: $value * ${other.value}")
+            throw LawOfB3Exception("Long overflow in multiplication: $value * ${other.value}")
         }
         return of(raw = res)
     }
     override operator fun div(other: ScalarL): ScalarL {
-        if (other.isZero) throw LawOfTerakoyaException("Division by zero.")
+        if (other.isZero) throw LawOfB3Exception("Division by zero.")
         // Long.MIN_VALUE / -1 だけはオーバーフローする唯一の除算
         if (this.value == Long.MIN_VALUE && other.value == NEGATIVE.value) {
-            throw LawOfTerakoyaException("Long overflow in division.")
+            throw LawOfB3Exception("Long overflow in division.")
         }
         return of(raw = this.value / other.value)
     }

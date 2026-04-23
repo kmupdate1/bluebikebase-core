@@ -1,4 +1,4 @@
-package terakoyalabo.core.domain.primitive.model
+package org.bluebikebase.core.domain.model
 
 /**
  * 計量可能な「数」としての共通規格。

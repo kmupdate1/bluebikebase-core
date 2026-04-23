@@ -1,13 +1,13 @@
-package terakoyalabo.core.domain.logic.model
+package org.bluebikebase.core.domain.logic.model
 
-import terakoyalabo.core.domain.primitive.model.ScalarD
-import terakoyalabo.core.domain.primitive.model.Signum
-import terakoyalabo.core.error.InvalidValidationException
-import terakoyalabo.core.error.LawOfTerakoyaException
-import terakoyalabo.core.function.validate
+import org.bluebikebase.core.domain.model.ScalarD
+import org.bluebikebase.core.domain.model.Signum
+import org.bluebikebase.core.error.InvalidValidationException
+import org.bluebikebase.core.error.LawOfB3Exception
+import org.bluebikebase.core.function.validate
 
 data class Threshold
-@Throws(InvalidValidationException::class, LawOfTerakoyaException::class)
+@Throws(InvalidValidationException::class, LawOfB3Exception::class)
 constructor(val limit: ScalarD, val forbiddenSignum: Signum, val epsilon: ScalarD = ScalarD.ZERO) {
     companion object {
         @Throws(InvalidValidationException::class)
@@ -19,11 +19,11 @@ constructor(val limit: ScalarD, val forbiddenSignum: Signum, val epsilon: Scalar
     /**
      * 開区間(a, b)
      */
-    @Throws(LawOfTerakoyaException::class)
+    @Throws(LawOfB3Exception::class)
     fun isViolatedBy(current: ScalarD): Boolean = when (forbiddenSignum) {
         Signum.POSITIVE -> current > limit + epsilon
         Signum.NEGATIVE -> current < limit - epsilon
-        Signum.NEUTRAL -> throw LawOfTerakoyaException(
+        Signum.NEUTRAL -> throw LawOfB3Exception(
             message = "The laws of Terakoya have been corrupted: Threshold detected an impossible ${Signum.NEUTRAL} state.",
         )
     }
@@ -31,11 +31,11 @@ constructor(val limit: ScalarD, val forbiddenSignum: Signum, val epsilon: Scalar
     /**
      * 閉区間[a, b]
      */
-    @Throws(LawOfTerakoyaException::class)
+    @Throws(LawOfB3Exception::class)
     fun isIncludesAndViolatedBy(current: ScalarD): Boolean = when (forbiddenSignum) {
         Signum.POSITIVE -> current >= limit + epsilon
         Signum.NEGATIVE -> current <= limit - epsilon
-        Signum.NEUTRAL -> throw LawOfTerakoyaException(
+        Signum.NEUTRAL -> throw LawOfB3Exception(
             message = "The laws of Terakoya have been corrupted: Threshold detected an impossible ${Signum.NEUTRAL} state.",
         )
     }

@@ -1,4 +1,4 @@
-rootProject.name = "terakoyalabo-library"
+rootProject.name = "bluebikebase-core"
 
 include(":core")
 include(":math")

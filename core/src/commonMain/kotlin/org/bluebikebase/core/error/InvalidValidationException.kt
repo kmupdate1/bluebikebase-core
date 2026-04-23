@@ -1,4 +1,4 @@
-package terakoyalabo.core.error
+package org.bluebikebase.core.error
 
 class InvalidValidationException(
     override val message: String,

@@ -1,7 +1,7 @@
-package terakoyalabo.core.domain.identity.model
+package org.bluebikebase.core.domain.model
 
-import terakoyalabo.core.error.InvalidValidationException
-import terakoyalabo.core.function.validate
+import org.bluebikebase.core.error.InvalidValidationException
+import org.bluebikebase.core.function.validate
 import kotlin.jvm.JvmInline
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid

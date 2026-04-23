@@ -1,14 +1,14 @@
-package terakoyalabo.math.domain.primitive
+package org.bluebikebase.math.domain.primitive
 
-import terakoyalabo.core.domain.logic.sVal
-import terakoyalabo.core.domain.primitive.model.Calculatable
-import terakoyalabo.core.domain.primitive.model.Scalable
-import terakoyalabo.core.domain.primitive.model.ScalarD
-import terakoyalabo.core.domain.primitive.model.ScalarD.Companion.DECA
-import terakoyalabo.core.domain.primitive.model.ScalarD.Companion.ZERO
-import terakoyalabo.core.domain.primitive.model.ScalarD.Companion.of
-import terakoyalabo.core.domain.primitive.model.ScalarL
-import terakoyalabo.core.error.InvalidValidationException
+import org.bluebikebase.core.domain.logic.sVal
+import org.bluebikebase.core.domain.model.Calculatable
+import org.bluebikebase.core.domain.model.Scalable
+import org.bluebikebase.core.domain.model.ScalarD
+import org.bluebikebase.core.domain.model.ScalarD.Companion.DECA
+import org.bluebikebase.core.domain.model.ScalarD.Companion.ZERO
+import org.bluebikebase.core.domain.model.ScalarD.Companion.of
+import org.bluebikebase.core.domain.model.ScalarL
+import org.bluebikebase.core.error.InvalidValidationException
 import kotlin.math.pow
 
 /**

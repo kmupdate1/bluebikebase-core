@@ -1,6 +1,6 @@
-package terakoyalabo.core.domain.quantity.model
+package org.bluebikebase.core.domain.quantity.model
 
-import terakoyalabo.core.domain.primitive.model.ScalarL
+import org.bluebikebase.core.domain.model.ScalarL
 import kotlin.jvm.JvmInline
 
 @JvmInline

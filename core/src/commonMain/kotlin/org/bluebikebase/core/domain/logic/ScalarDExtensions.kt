@@ -1,27 +1,27 @@
-package terakoyalabo.core.domain.logic
+package org.bluebikebase.core.domain.logic
 
-import terakoyalabo.core.domain.primitive.model.ScalarD
-import terakoyalabo.core.domain.primitive.model.Signum
-import terakoyalabo.core.domain.logic.model.TargetPoint
-import terakoyalabo.core.domain.logic.model.Threshold
-import terakoyalabo.core.error.LawOfTerakoyaException
+import org.bluebikebase.core.domain.model.ScalarD
+import org.bluebikebase.core.domain.model.Signum
+import org.bluebikebase.core.domain.logic.model.TargetPoint
+import org.bluebikebase.core.domain.logic.model.Threshold
+import org.bluebikebase.core.error.LawOfB3Exception
 
 /**
  * 閾値という「法」に対して、対象が「規律」を守っているかを確認する。
  * 対象が、閾値未満であればtrue、それ以外はfalse。
- * @throws LawOfTerakoyaException
+ * @throws LawOfB3Exception
  */
 val Threshold.discipline: (ScalarD) -> Boolean get() = { !this.isViolatedBy(current = it) }
-@Throws(LawOfTerakoyaException::class)
+@Throws(LawOfB3Exception::class)
 fun Threshold.disciplineBy(current: ScalarD): Boolean = this.discipline.invoke(current)
 
 /**
  * 境界値を含め、規律を守っているかを確認する。
  * 対象が、閾値以内であればtrue、それ以外はfalse。
- * @throws LawOfTerakoyaException
+ * @throws LawOfB3Exception
  */
 val Threshold.inclusiveDiscipline: (ScalarD) -> Boolean get() = { !this.isIncludesAndViolatedBy(current = it) }
-@Throws(LawOfTerakoyaException::class)
+@Throws(LawOfB3Exception::class)
 fun Threshold.inclusiveDisciplineBy(current: ScalarD): Boolean = this.inclusiveDiscipline.invoke(current)
 
 val ScalarD.signum: Signum get() = Signum.of(scalar = this)

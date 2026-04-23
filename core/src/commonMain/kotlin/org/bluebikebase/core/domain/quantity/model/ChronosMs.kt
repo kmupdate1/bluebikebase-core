@@ -1,23 +1,23 @@
-package terakoyalabo.core.domain.quantity.model
+package org.bluebikebase.core.domain.quantity.model
 
-import terakoyalabo.core.domain.logic.asLowerLimit
-import terakoyalabo.core.domain.logic.inclusiveDiscipline
-import terakoyalabo.core.domain.primitive.model.ScalarD
-import terakoyalabo.core.error.InvalidValidationException
-import terakoyalabo.core.error.LawOfTerakoyaException
-import terakoyalabo.core.function.validate
+import org.bluebikebase.core.domain.logic.asLowerLimit
+import org.bluebikebase.core.domain.logic.inclusiveDiscipline
+import org.bluebikebase.core.domain.model.ScalarD
+import org.bluebikebase.core.error.InvalidValidationException
+import org.bluebikebase.core.error.LawOfB3Exception
+import org.bluebikebase.core.function.validate
 import kotlin.jvm.JvmInline
 
 @JvmInline
 value class ChronosMs
-@Throws(LawOfTerakoyaException::class)
+@Throws(LawOfB3Exception::class)
 private constructor(val ms: ScalarD) {
     companion object {
         val SECOND: ChronosMs = of(ms = ScalarD.KILO)
         val MINUTE: ChronosMs = of(ms = ScalarD.KILO * ScalarD.SEXA)
         val HOUR: ChronosMs = of(ms = ScalarD.KILO * ScalarD.SEXA * ScalarD.SEXA)
 
-        @Throws(InvalidValidationException::class, LawOfTerakoyaException::class)
+        @Throws(InvalidValidationException::class, LawOfB3Exception::class)
         fun of(ms: ScalarD): ChronosMs {
             val validMs = ms.validate(
                 requirement = ScalarD.ZERO.asLowerLimit.inclusiveDiscipline,

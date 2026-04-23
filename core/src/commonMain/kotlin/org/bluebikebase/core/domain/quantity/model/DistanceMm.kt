@@ -1,11 +1,11 @@
-package terakoyalabo.core.domain.quantity.model
+package org.bluebikebase.core.domain.quantity.model
 
-import terakoyalabo.core.domain.logic.asLowerLimit
-import terakoyalabo.core.domain.logic.inclusiveDiscipline
-import terakoyalabo.core.domain.primitive.model.ScalarD
-import terakoyalabo.core.error.InvalidValidationException
-import terakoyalabo.core.error.LawOfTerakoyaException
-import terakoyalabo.core.function.validate
+import org.bluebikebase.core.domain.logic.asLowerLimit
+import org.bluebikebase.core.domain.logic.inclusiveDiscipline
+import org.bluebikebase.core.domain.model.ScalarD
+import org.bluebikebase.core.error.InvalidValidationException
+import org.bluebikebase.core.error.LawOfB3Exception
+import org.bluebikebase.core.function.validate
 import kotlin.jvm.JvmInline
 
 @JvmInline
@@ -13,7 +13,7 @@ value class DistanceMm private constructor(val mm: ScalarD) {
     companion object {
         val ZERO = DistanceMm(mm = ScalarD.ZERO)
 
-        @Throws(InvalidValidationException::class, LawOfTerakoyaException::class)
+        @Throws(InvalidValidationException::class, LawOfB3Exception::class)
         fun of(rawMm: ScalarD): DistanceMm {
             val validMm = rawMm.validate(
                 requirement = ScalarD.ZERO.asLowerLimit.inclusiveDiscipline,

@@ -1,4 +1,4 @@
-package terakoyalabo.core.domain.primitive.model
+package org.bluebikebase.core.domain.model
 
 import kotlin.jvm.JvmInline
 

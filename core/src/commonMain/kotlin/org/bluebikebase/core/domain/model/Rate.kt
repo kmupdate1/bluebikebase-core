@@ -1,7 +1,7 @@
-package terakoyalabo.core.domain.primitive.model
+package org.bluebikebase.core.domain.model
 
-import terakoyalabo.core.error.InvalidValidationException
-import terakoyalabo.core.function.validate
+import org.bluebikebase.core.error.InvalidValidationException
+import org.bluebikebase.core.function.validate
 import kotlin.jvm.JvmInline
 
 // Rate: 0.0以上の実数を保証する「率」

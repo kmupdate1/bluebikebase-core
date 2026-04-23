@@ -1,4 +1,4 @@
-package terakoyalabo.core.architecture
+package org.bluebikebase.core.architecture
 
 import com.lemonappdev.konsist.api.Konsist
 import com.lemonappdev.konsist.api.ext.list.withPackage
