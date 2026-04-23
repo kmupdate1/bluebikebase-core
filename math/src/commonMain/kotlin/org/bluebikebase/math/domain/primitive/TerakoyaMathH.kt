@@ -1,13 +1,13 @@
 package org.bluebikebase.math.domain.primitive
 
-import org.bluebikebase.core.domain.logic.sVal
-import org.bluebikebase.core.domain.model.Calculatable
-import org.bluebikebase.core.domain.model.Scalable
-import org.bluebikebase.core.domain.model.ScalarD
-import org.bluebikebase.core.domain.model.ScalarD.Companion.DECA
-import org.bluebikebase.core.domain.model.ScalarD.Companion.ZERO
-import org.bluebikebase.core.domain.model.ScalarD.Companion.of
-import org.bluebikebase.core.domain.model.ScalarL
+import org.bluebikebase.core.algebra.extensions.sVal
+import org.bluebikebase.core.foundation.Calculatable
+import org.bluebikebase.core.foundation.Scalable
+import org.bluebikebase.core.foundation.ScalarD
+import org.bluebikebase.core.foundation.ScalarD.Companion.DECA
+import org.bluebikebase.core.foundation.ScalarD.Companion.ZERO
+import org.bluebikebase.core.foundation.ScalarD.Companion.of
+import org.bluebikebase.core.foundation.ScalarL
 import org.bluebikebase.core.error.InvalidValidationException
 import kotlin.math.pow
 
