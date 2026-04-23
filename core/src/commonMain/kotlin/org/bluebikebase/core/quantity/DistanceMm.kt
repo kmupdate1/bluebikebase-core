@@ -2,9 +2,9 @@ package org.bluebikebase.core.quantity
 
 import org.bluebikebase.core.algebra.extensions.asLowerLimit
 import org.bluebikebase.core.algebra.extensions.inclusiveDiscipline
-import org.bluebikebase.core.kernel.ScalarD
+import org.bluebikebase.core.foundation.ScalarD
 import org.bluebikebase.core.error.InvalidValidationException
-import org.bluebikebase.core.error.LawOfB3Exception
+import org.bluebikebase.core.error.B3Exception
 import org.bluebikebase.core.rule.validate
 import kotlin.jvm.JvmInline
 
@@ -13,7 +13,7 @@ value class DistanceMm private constructor(val mm: ScalarD) {
     companion object {
         val ZERO = DistanceMm(mm = ScalarD.ZERO)
 
-        @Throws(InvalidValidationException::class, LawOfB3Exception::class)
+        @Throws(InvalidValidationException::class, B3Exception::class)
         fun of(rawMm: ScalarD): DistanceMm {
             val validMm = rawMm.validate(
                 requirement = ScalarD.ZERO.asLowerLimit.inclusiveDiscipline,

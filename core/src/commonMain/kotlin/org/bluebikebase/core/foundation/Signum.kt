@@ -1,4 +1,4 @@
-package org.bluebikebase.core.kernel
+package org.bluebikebase.core.foundation
 
 enum class Signum {
     POSITIVE, NEGATIVE, NEUTRAL;

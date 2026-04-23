@@ -1,6 +1,6 @@
 package org.bluebikebase.core.algebra
 
-import org.bluebikebase.core.kernel.ScalarD
+import org.bluebikebase.core.foundation.ScalarD
 
 interface Rateable {
     val scalar: ScalarD

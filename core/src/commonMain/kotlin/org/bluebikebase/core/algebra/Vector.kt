@@ -3,13 +3,13 @@ package org.bluebikebase.core.algebra
 import org.bluebikebase.core.algebra.extensions.asLowerLimit
 import org.bluebikebase.core.algebra.extensions.discipline
 import org.bluebikebase.core.error.InvalidValidationException
-import org.bluebikebase.core.error.LawOfB3Exception
+import org.bluebikebase.core.error.B3Exception
 import org.bluebikebase.core.rule.validate
-import org.bluebikebase.core.kernel.ScalarD
-import org.bluebikebase.core.kernel.Signum
+import org.bluebikebase.core.foundation.ScalarD
+import org.bluebikebase.core.foundation.Signum
 
 data class Vector
-@Throws(InvalidValidationException::class, LawOfB3Exception::class)
+@Throws(InvalidValidationException::class, B3Exception::class)
 constructor(val magnitude: ScalarD, val direction: Signum) {
     companion object {
         val STATIONARY: Vector = Vector(magnitude = ScalarD.ZERO, direction = Signum.NEUTRAL)

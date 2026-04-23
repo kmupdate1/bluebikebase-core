@@ -1,6 +1,6 @@
 package org.bluebikebase.core.algebra.extensions
 
-import org.bluebikebase.core.kernel.ScalarD
+import org.bluebikebase.core.foundation.ScalarD
 import org.bluebikebase.core.quantity.ChronosMs
 
 // ミリ秒：最小単位そのまま

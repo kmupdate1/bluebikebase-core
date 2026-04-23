@@ -1,4 +1,4 @@
-package org.bluebikebase.core.algebra
+package org.bluebikebase.core.foundation
 
 /**
  * 計量可能な「数」としての共通規格。

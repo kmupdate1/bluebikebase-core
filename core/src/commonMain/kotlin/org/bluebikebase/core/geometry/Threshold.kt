@@ -1,13 +1,13 @@
 package org.bluebikebase.core.geometry
 
-import org.bluebikebase.core.kernel.ScalarD
-import org.bluebikebase.core.kernel.Signum
+import org.bluebikebase.core.foundation.ScalarD
+import org.bluebikebase.core.foundation.Signum
 import org.bluebikebase.core.error.InvalidValidationException
-import org.bluebikebase.core.error.LawOfB3Exception
+import org.bluebikebase.core.error.B3Exception
 import org.bluebikebase.core.rule.validate
 
 data class Threshold
-@Throws(InvalidValidationException::class, LawOfB3Exception::class)
+@Throws(InvalidValidationException::class, B3Exception::class)
 constructor(val limit: ScalarD, val forbiddenSignum: Signum, val epsilon: ScalarD = ScalarD.ZERO) {
     companion object {
         @Throws(InvalidValidationException::class)
@@ -19,11 +19,11 @@ constructor(val limit: ScalarD, val forbiddenSignum: Signum, val epsilon: Scalar
     /**
      * 開区間(a, b)
      */
-    @Throws(LawOfB3Exception::class)
+    @Throws(B3Exception::class)
     fun isViolatedBy(current: ScalarD): Boolean = when (forbiddenSignum) {
         Signum.POSITIVE -> current > limit + epsilon
         Signum.NEGATIVE -> current < limit - epsilon
-        Signum.NEUTRAL -> throw LawOfB3Exception(
+        Signum.NEUTRAL -> throw B3Exception(
             message = "The laws of Terakoya have been corrupted: Threshold detected an impossible ${Signum.NEUTRAL} state.",
         )
     }
@@ -31,11 +31,11 @@ constructor(val limit: ScalarD, val forbiddenSignum: Signum, val epsilon: Scalar
     /**
      * 閉区間[a, b]
      */
-    @Throws(LawOfB3Exception::class)
+    @Throws(B3Exception::class)
     fun isIncludesAndViolatedBy(current: ScalarD): Boolean = when (forbiddenSignum) {
         Signum.POSITIVE -> current >= limit + epsilon
         Signum.NEGATIVE -> current <= limit - epsilon
-        Signum.NEUTRAL -> throw LawOfB3Exception(
+        Signum.NEUTRAL -> throw B3Exception(
             message = "The laws of Terakoya have been corrupted: Threshold detected an impossible ${Signum.NEUTRAL} state.",
         )
     }

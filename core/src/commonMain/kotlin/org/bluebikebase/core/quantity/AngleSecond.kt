@@ -1,6 +1,6 @@
 package org.bluebikebase.core.quantity
 
-import org.bluebikebase.core.kernel.ScalarL
+import org.bluebikebase.core.foundation.ScalarL
 import kotlin.jvm.JvmInline
 
 @JvmInline

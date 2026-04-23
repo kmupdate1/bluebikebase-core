@@ -2,22 +2,22 @@ package org.bluebikebase.core.quantity
 
 import org.bluebikebase.core.algebra.extensions.asLowerLimit
 import org.bluebikebase.core.algebra.extensions.inclusiveDiscipline
-import org.bluebikebase.core.kernel.ScalarD
+import org.bluebikebase.core.foundation.ScalarD
 import org.bluebikebase.core.error.InvalidValidationException
-import org.bluebikebase.core.error.LawOfB3Exception
+import org.bluebikebase.core.error.B3Exception
 import org.bluebikebase.core.rule.validate
 import kotlin.jvm.JvmInline
 
 @JvmInline
 value class ChronosMs
-@Throws(LawOfB3Exception::class)
+@Throws(B3Exception::class)
 private constructor(val ms: ScalarD) {
     companion object {
         val SECOND: ChronosMs = of(ms = ScalarD.KILO)
         val MINUTE: ChronosMs = of(ms = ScalarD.KILO * ScalarD.SEXA)
         val HOUR: ChronosMs = of(ms = ScalarD.KILO * ScalarD.SEXA * ScalarD.SEXA)
 
-        @Throws(InvalidValidationException::class, LawOfB3Exception::class)
+        @Throws(InvalidValidationException::class, B3Exception::class)
         fun of(ms: ScalarD): ChronosMs {
             val validMs = ms.validate(
                 requirement = ScalarD.ZERO.asLowerLimit.inclusiveDiscipline,

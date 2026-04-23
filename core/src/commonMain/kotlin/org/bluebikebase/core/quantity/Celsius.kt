@@ -1,16 +1,11 @@
 package org.bluebikebase.core.quantity
 
 import org.bluebikebase.core.algebra.Delta
-import org.bluebikebase.core.kernel.ScalarD
+import org.bluebikebase.core.algebra.extensions.*
 import org.bluebikebase.core.error.InvalidValidationException
-import org.bluebikebase.core.error.LawOfB3Exception
+import org.bluebikebase.core.error.B3Exception
+import org.bluebikebase.core.foundation.ScalarD
 import org.bluebikebase.core.rule.validate
-import org.bluebikebase.core.algebra.extensions.asLowerLimit
-import org.bluebikebase.core.algebra.extensions.asTargetWithEpsilon
-import org.bluebikebase.core.algebra.extensions.asUpperLimit
-import org.bluebikebase.core.algebra.extensions.inclusiveDiscipline
-import org.bluebikebase.core.algebra.extensions.inclusiveDisciplineBy
-import org.bluebikebase.core.algebra.extensions.sVal
 import kotlin.jvm.JvmInline
 
 @JvmInline
@@ -19,7 +14,7 @@ value class Celsius private constructor(val degree: ScalarD) {
         /** 絶対零度 (-273.15℃) */
         val ABSOLUTE_ZERO: Celsius = Celsius(degree = ScalarD.of(raw = -273.15))
 
-        @Throws(InvalidValidationException::class, LawOfB3Exception::class)
+        @Throws(InvalidValidationException::class, B3Exception::class)
         fun of(rawDegree: ScalarD): Celsius {
             // 絶対零度を下回ることは「理」が許さない
             val validDegree = rawDegree.validate(
@@ -32,11 +27,11 @@ value class Celsius private constructor(val degree: ScalarD) {
 
     // --- 生命・自然の境界線（感じの良い定数） ---
     /**
-     * @throws LawOfB3Exception
+     * @throws B3Exception
      */
     val isFreezing: Boolean get() = ScalarD.ZERO.asUpperLimit.inclusiveDisciplineBy(current = this.degree)
     /**
-     * @throws LawOfB3Exception
+     * @throws B3Exception
      */
     val isBoiling: Boolean get() = ScalarD.HECTO.asLowerLimit.inclusiveDisciplineBy(current = this.degree)
     val isNormal: Boolean get() = 25.0.sVal.asTargetWithEpsilon(epsilon = 5.0.sVal).isReachedBy(current = this.degree)

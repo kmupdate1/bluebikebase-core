@@ -1,7 +1,5 @@
-package org.bluebikebase.core.kernel
+package org.bluebikebase.core.foundation
 
-import org.bluebikebase.core.algebra.Calculatable
-import org.bluebikebase.core.algebra.Scalable
 import org.bluebikebase.core.error.InvalidValidationException
 import org.bluebikebase.core.rule.validate
 import kotlin.jvm.JvmInline

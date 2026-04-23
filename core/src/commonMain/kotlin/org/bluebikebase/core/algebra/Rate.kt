@@ -2,7 +2,7 @@ package org.bluebikebase.core.algebra
 
 import org.bluebikebase.core.error.InvalidValidationException
 import org.bluebikebase.core.rule.validate
-import org.bluebikebase.core.kernel.ScalarD
+import org.bluebikebase.core.foundation.ScalarD
 import kotlin.jvm.JvmInline
 
 // Rate: 0.0以上の実数を保証する「率」
