@@ -2,7 +2,7 @@ package org.bluebikebase.core.algebra
 
 import org.bluebikebase.core.quantity.ChronosMs
 import org.bluebikebase.core.algebra.extensions.ms
-import org.bluebikebase.core.error.InvalidValidationException
+import org.bluebikebase.core.error.B3InvalidValidationException
 import org.bluebikebase.core.foundation.ScalarD
 
 /**
@@ -16,7 +16,7 @@ data class Delta(val velocity: Vector, val durationMs: ChronosMs = 1.ms) {
          */
         val IDLE = Delta(velocity = Vector.STATIONARY)
 
-        @Throws(InvalidValidationException::class)
+        @Throws(B3InvalidValidationException::class)
         fun of(rawVelocity: ScalarD, durationMs: ChronosMs = 1.ms): Delta =
             Delta(velocity = Vector.of(rawMag = rawVelocity), durationMs = durationMs)
     }

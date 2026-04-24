@@ -1,6 +1,6 @@
 package org.bluebikebase.core.foundation
 
-import org.bluebikebase.core.error.InvalidValidationException
+import org.bluebikebase.core.error.B3InvalidValidationException
 import org.bluebikebase.core.rule.validate
 import kotlin.jvm.JvmInline
 import kotlin.uuid.ExperimentalUuidApi
@@ -8,7 +8,7 @@ import kotlin.uuid.Uuid
 
 @JvmInline
 value class Identity @OptIn(ExperimentalUuidApi::class)
-@Throws(InvalidValidationException::class)
+@Throws(B3InvalidValidationException::class)
 private constructor(val id: Uuid) {
     companion object {
         @OptIn(ExperimentalUuidApi::class)

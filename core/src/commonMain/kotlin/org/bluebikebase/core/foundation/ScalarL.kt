@@ -1,6 +1,6 @@
 package org.bluebikebase.core.foundation
 
-import org.bluebikebase.core.error.InvalidValidationException
+import org.bluebikebase.core.error.B3InvalidValidationException
 import org.bluebikebase.core.error.B3Exception
 import kotlin.jvm.JvmInline
 import kotlin.math.abs
@@ -12,7 +12,7 @@ value class ScalarL private constructor(val value: Long) : Scalable<ScalarL>, Ca
         val ONE = ScalarL(value = 1L)
         val NEGATIVE = ScalarL(-1L)
 
-        @Throws(InvalidValidationException::class)
+        @Throws(B3InvalidValidationException::class)
         fun of(raw: Long): ScalarL = ScalarL(value = raw)
     }
 
@@ -24,14 +24,14 @@ value class ScalarL private constructor(val value: Long) : Scalable<ScalarL>, Ca
     override val isZero: Boolean get() = value == 0L
 
     /**
-     * @throws InvalidValidationException
+     * @throws B3InvalidValidationException
      */
     override val abs: ScalarL get() = if (value == Long.MIN_VALUE) {
         throw B3Exception("Overflow in absolute value.")
     } else of(raw = abs(value))
 
     /**
-     * @throws InvalidValidationException
+     * @throws B3InvalidValidationException
      */
     override val inversion: ScalarL get() = if (value == Long.MIN_VALUE) {
         throw B3Exception("Overflow in inversion: Long.MIN_VALUE cannot be inverted.")

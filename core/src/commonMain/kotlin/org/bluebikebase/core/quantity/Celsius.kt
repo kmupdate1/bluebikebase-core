@@ -2,7 +2,7 @@ package org.bluebikebase.core.quantity
 
 import org.bluebikebase.core.algebra.Delta
 import org.bluebikebase.core.algebra.extensions.*
-import org.bluebikebase.core.error.InvalidValidationException
+import org.bluebikebase.core.error.B3InvalidValidationException
 import org.bluebikebase.core.error.B3Exception
 import org.bluebikebase.core.foundation.ScalarD
 import org.bluebikebase.core.rule.validate
@@ -14,7 +14,7 @@ value class Celsius private constructor(val degree: ScalarD) {
         /** 絶対零度 (-273.15℃) */
         val ABSOLUTE_ZERO: Celsius = Celsius(degree = ScalarD.of(raw = -273.15))
 
-        @Throws(InvalidValidationException::class, B3Exception::class)
+        @Throws(B3InvalidValidationException::class, B3Exception::class)
         fun of(rawDegree: ScalarD): Celsius {
             // 絶対零度を下回ることは「理」が許さない
             val validDegree = rawDegree.validate(
@@ -41,8 +41,8 @@ value class Celsius private constructor(val degree: ScalarD) {
     // --- 空間の代謝（演算） ---
     // 温度同士の足し算は物理的に特殊（混合）なため、
     // 「温度差」の概念（Delta）を導入するのも寺子屋風ですが、まずはシンプルに。
-    @Throws(InvalidValidationException::class)
+    @Throws(B3InvalidValidationException::class)
     operator fun plus(delta: Delta): Celsius = of(rawDegree = this.degree + delta.magnitude)
-    @Throws(InvalidValidationException::class)
+    @Throws(B3InvalidValidationException::class)
     operator fun minus(delta: Delta): Celsius = of(rawDegree = this.degree - delta.magnitude)
 }

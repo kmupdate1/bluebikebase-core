@@ -6,7 +6,7 @@ interface Rateable {
     val scalar: ScalarD
 
     /**
-    * @throws org.bluebikebase.core.error.InvalidValidationException
+    * @throws org.bluebikebase.core.error.B3InvalidValidationException
     **/
     val percent: ScalarD get() = scalar * ScalarD.HECTO
 }

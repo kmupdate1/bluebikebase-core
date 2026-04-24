@@ -1,6 +1,6 @@
 package org.bluebikebase.core.quantity
 
-import org.bluebikebase.core.error.InvalidValidationException
+import org.bluebikebase.core.error.B3InvalidValidationException
 import org.bluebikebase.core.rule.validate
 import kotlin.jvm.JvmInline
 import kotlin.time.Clock
@@ -9,7 +9,7 @@ import kotlin.time.Instant
 @JvmInline
 value class HeartBeat private constructor(val at: Instant) {
     companion object {
-        @Throws(InvalidValidationException::class)
+        @Throws(B3InvalidValidationException::class)
         fun fromString(at: String): HeartBeat {
             val validTime = at.validate(
                 run = { Instant.parse(it) },

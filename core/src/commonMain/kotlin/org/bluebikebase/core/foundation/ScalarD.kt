@@ -1,6 +1,6 @@
 package org.bluebikebase.core.foundation
 
-import org.bluebikebase.core.error.InvalidValidationException
+import org.bluebikebase.core.error.B3InvalidValidationException
 import org.bluebikebase.core.rule.validate
 import kotlin.jvm.JvmInline
 import kotlin.math.abs
@@ -25,7 +25,7 @@ value class ScalarD private constructor(val value: Double) : Scalable<ScalarD>, 
         val SEXA: ScalarD = ScalarD(value = 6.0) * DECA     // 60 times
         val NEGATIVE_ONE: ScalarD = ScalarD(value = -1.0)
 
-        @Throws(InvalidValidationException::class)
+        @Throws(B3InvalidValidationException::class)
         fun of(raw: Double): ScalarD {
             val validRaw = raw
                 .validate(requirement = { it.isNaN() }, lazyMessage = { "No definition (NaN)." })
@@ -37,9 +37,9 @@ value class ScalarD private constructor(val value: Double) : Scalable<ScalarD>, 
     /**
      * 最も近い整数へ丸めて Long に変換する。
      * 「個体数」や「円」などの不連続な具象へ変換する際の標準ルート。
-     * @throws InvalidValidationException
+     * @throws B3InvalidValidationException
      */
-    @Throws(InvalidValidationException::class)
+    @Throws(B3InvalidValidationException::class)
     fun toWholeNumber(): ScalarL = ScalarL.of(raw = value.roundToLong())
 
     override fun toString(): String = value.toString()
@@ -51,13 +51,13 @@ value class ScalarD private constructor(val value: Double) : Scalable<ScalarD>, 
 
     /**
      * 絶対値
-     * @throws InvalidValidationException 理の外の値（NaN/Inf）が生成される場合に送出
+     * @throws B3InvalidValidationException 理の外の値（NaN/Inf）が生成される場合に送出
      */
     override val abs: ScalarD get() = of(raw = abs(x = this.value))
 
     /**
      * 符号反転
-     * @throws InvalidValidationException 理の外の値（NaN/Inf）が生成される場合に送出
+     * @throws B3InvalidValidationException 理の外の値（NaN/Inf）が生成される場合に送出
      */
     override val inversion: ScalarD get() = of(raw = -this.value)
 

@@ -2,17 +2,17 @@ package org.bluebikebase.core.geometry
 
 import org.bluebikebase.core.foundation.ScalarD
 import org.bluebikebase.core.foundation.Signum
-import org.bluebikebase.core.error.InvalidValidationException
+import org.bluebikebase.core.error.B3InvalidValidationException
 import org.bluebikebase.core.error.B3Exception
 import org.bluebikebase.core.rule.validate
 
 data class Threshold
-@Throws(InvalidValidationException::class, B3Exception::class)
+@Throws(B3InvalidValidationException::class, B3Exception::class)
 constructor(val limit: ScalarD, val forbiddenSignum: Signum, val epsilon: ScalarD = ScalarD.ZERO) {
     companion object {
-        @Throws(InvalidValidationException::class)
+        @Throws(B3InvalidValidationException::class)
         fun upper(limit: ScalarD): Threshold = Threshold(limit = limit, forbiddenSignum = Signum.POSITIVE)
-        @Throws(InvalidValidationException::class)
+        @Throws(B3InvalidValidationException::class)
         fun lower(limit: ScalarD): Threshold = Threshold(limit = limit, forbiddenSignum = Signum.NEGATIVE)
     }
 

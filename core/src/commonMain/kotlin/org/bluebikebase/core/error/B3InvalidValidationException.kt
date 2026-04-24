@@ -1,6 +1,6 @@
 package org.bluebikebase.core.error
 
-class InvalidValidationException(
+open class B3InvalidValidationException(
     override val message: String,
     override val cause: Throwable? = null,
-) : CoreException(message = message, cause = cause)
+) : B3Exception(message = message, cause = cause)

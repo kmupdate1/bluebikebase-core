@@ -1,6 +1,6 @@
 package org.bluebikebase.core.algebra
 
-import org.bluebikebase.core.error.InvalidValidationException
+import org.bluebikebase.core.error.B3InvalidValidationException
 import org.bluebikebase.core.rule.validate
 import org.bluebikebase.core.foundation.ScalarD
 import kotlin.jvm.JvmInline
@@ -9,7 +9,7 @@ import kotlin.jvm.JvmInline
 @JvmInline
 value class Ratio private constructor(val rate: Rate) : Rateable {
     companion object {
-        @Throws(InvalidValidationException::class)
+        @Throws(B3InvalidValidationException::class)
         fun of(rate: Rate): Ratio {
             val validRate = rate.validate(
                 requirement = { it.scalar <= ScalarD.ONE },
@@ -20,7 +20,7 @@ value class Ratio private constructor(val rate: Rate) : Rateable {
         }
 
         // ScalarDから直接作るショートカット
-        @Throws(InvalidValidationException::class)
+        @Throws(B3InvalidValidationException::class)
         fun of(scalar: ScalarD): Ratio = of(rate = Rate(scalar = scalar))
     }
 
