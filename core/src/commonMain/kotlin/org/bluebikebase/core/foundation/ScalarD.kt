@@ -1,11 +1,14 @@
 package org.bluebikebase.core.foundation
 
+import kotlinx.serialization.Serializable
 import org.bluebikebase.core.error.B3InvalidValidationException
 import org.bluebikebase.core.rule.validate
+import org.bluebikebase.core.serializer.ScalarDSerializer
 import kotlin.jvm.JvmInline
 import kotlin.math.abs
 import kotlin.math.roundToLong
 
+@Serializable(with = ScalarDSerializer::class)
 @JvmInline
 value class ScalarD private constructor(val value: Double) : Scalable<ScalarD>, Calculatable<ScalarD> {
     companion object {
