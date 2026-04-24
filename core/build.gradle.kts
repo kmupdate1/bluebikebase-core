@@ -1,6 +1,7 @@
 plugins {
     `maven-publish`
     alias { libs.plugins.kotlin.multiplatform }
+    alias { libs.plugins.kotlin.serialization }
     alias { libs.plugins.org.sonarqube }
 }
 
@@ -24,6 +25,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(libs.kotlinx.datetime)
+            implementation(libs.kotlinx.serialization.json)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test.common)

@@ -1,7 +1,8 @@
 plugins {
     // 規格書 (toml) から Kotlin Multiplatform プラグインを読み込む
     // ここ（中央政府）では適用せず、各州に配る準備だけを行う
-    alias(libs.plugins.kotlin.multiplatform) apply false
+    alias { libs.plugins.kotlin.multiplatform } apply false
+    alias { libs.plugins.kotlin.serialization } apply false
 }
 
 // コマンド実行時に -Prelease=true をつけた時だけ本番モード
