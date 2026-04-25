@@ -19,8 +19,7 @@ enum class Signum {
      * 物理演算時の係数。
      * これにより、理学的な「向き」を実数演算へと橋渡しする。
      */
-    val multiplier: ScalarD
-        get() = when (this) {
+    val multiplier: ScalarD get() = when (this) {
         POSITIVE -> ScalarD.ONE
         NEGATIVE -> ScalarD.ONE.inversion
         NEUTRAL -> ScalarD.ZERO

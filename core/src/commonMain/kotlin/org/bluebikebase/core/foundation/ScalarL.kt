@@ -19,9 +19,9 @@ value class ScalarL private constructor(val value: Long) : Scalable<ScalarL>, Ca
     override fun toString(): String = value.toString()
 
     // Scalable
-    override val isPositive: Boolean get() = value > 0L
-    override val isNegative: Boolean get() = value < 0L
-    override val isZero: Boolean get() = value == 0L
+    override val isPositive: Boolean get() = value > ZERO.value
+    override val isNegative: Boolean get() = value < ZERO.value
+    override val isZero: Boolean get() = value == ZERO.value
 
     /**
      * @throws B3InvalidValidationException
