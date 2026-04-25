@@ -15,10 +15,10 @@ constructor(val magnitude: ScalarD, val direction: Signum) {
         val STATIONARY: Vector = Vector(magnitude = ScalarD.ZERO, direction = Signum.NEUTRAL)
 
         @Throws(B3InvalidValidationException::class)
-        fun of(rawMag: ScalarD): Vector = rawMag.let { mag ->
+        fun of(rawMag: ScalarD): Vector = rawMag.run {
             Vector(
-                magnitude = mag.abs,
-                direction = Signum.of(scalar = mag),
+                magnitude = abs,
+                direction = Signum.of(scalar = this),
             )
         }
     }
