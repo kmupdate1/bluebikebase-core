@@ -24,7 +24,7 @@ constructor(val limit: ScalarD, val forbiddenSignum: Signum, val epsilon: Scalar
         Signum.POSITIVE -> current > limit + epsilon
         Signum.NEGATIVE -> current < limit - epsilon
         Signum.NEUTRAL -> throw B3Exception(
-            message = "The laws of Terakoya have been corrupted: Threshold detected an impossible ${Signum.NEUTRAL} state.",
+            message = "The laws of B3 have been corrupted: Threshold detected an impossible ${Signum.NEUTRAL} state.",
         )
     }
 
@@ -36,7 +36,7 @@ constructor(val limit: ScalarD, val forbiddenSignum: Signum, val epsilon: Scalar
         Signum.POSITIVE -> current >= limit + epsilon
         Signum.NEGATIVE -> current <= limit - epsilon
         Signum.NEUTRAL -> throw B3Exception(
-            message = "The laws of Terakoya have been corrupted: Threshold detected an impossible ${Signum.NEUTRAL} state.",
+            message = "The laws of B3 have been corrupted: Threshold detected an impossible ${Signum.NEUTRAL} state.",
         )
     }
 

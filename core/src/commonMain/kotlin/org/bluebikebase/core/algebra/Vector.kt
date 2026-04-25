@@ -24,18 +24,9 @@ constructor(val magnitude: ScalarD, val direction: Signum) {
     }
 
     init {
-        magnitude
-            .validate(
-                requirement = ScalarD.ZERO.asLowerLimit.discipline,
-                lazyMessage = { "Magnitude must be positive: $it." },
-            )
-            .validate(
-                requirement = { it != ScalarD.ZERO && direction == Signum.NEUTRAL },
-                lazyMessage = {
-                    "Logical conflict detected: Magnitude is $it but direction is NEUTRAL. " +
-                            "A non-zero magnitude must have an active polarity (POSITIVE or NEGATIVE). " +
-                            "Please ensure the magnitude is zero if you intend to represent a balanced/stationary state."
-                },
-            )
+        magnitude.validate(
+            requirement = ScalarD.ZERO.asLowerLimit.discipline,
+            lazyMessage = { "Magnitude must be positive: $it." },
+        )
     }
 }
