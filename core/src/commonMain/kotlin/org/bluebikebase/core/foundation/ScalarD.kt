@@ -13,26 +13,26 @@ import kotlin.math.roundToLong
 value class ScalarD private constructor(val value: Double) : Scalable<ScalarD>, Calculatable<ScalarD> {
     companion object {
         // 演算子の混入は今後検討
-        val ZERO: ScalarD = ScalarD(value = 0.0)
-        val ONE: ScalarD = ScalarD(value = 1.0)
-        val DECA: ScalarD = ScalarD(value = 10.0)
-        val HECTO: ScalarD = DECA * DECA    // 10^2
-        val KILO: ScalarD = HECTO * DECA    // 10^3
-        val MEGA: ScalarD = KILO * KILO     // 10^6
-        val GIGA: ScalarD = MEGA * KILO     // 10^9
-        val DECI: ScalarD  = ONE / DECA     // 10^-1
-        val CENTI: ScalarD = ONE / HECTO    // 10^-2
-        val MILLI: ScalarD = ONE / KILO     // 10^-3
-        val MICRO: ScalarD = ONE / MEGA     // 10^-6
-        val NANO: ScalarD  = ONE / GIGA     // 10^-9
-        val SEXA: ScalarD = ScalarD(value = 6.0) * DECA     // 60 times
-        val NEGATIVE_ONE: ScalarD = ScalarD(value = -1.0)
+        val ZERO: ScalarD = ScalarD(0.0)
+        val ONE: ScalarD = ScalarD(1.0)
+        val DECA: ScalarD = ScalarD(10.0)
+        val HECTO: ScalarD = ScalarD(100.0)
+        val KILO: ScalarD = ScalarD(1_000.0)
+        val MEGA = ScalarD(1_000_000.0)
+        val GIGA = ScalarD(1_000_000_000.0)
+        val DECI: ScalarD  = ScalarD(0.1)
+        val CENTI: ScalarD = ScalarD(0.01)
+        val MILLI: ScalarD = ScalarD(0.001)
+        val MICRO = ScalarD(0.000_001)
+        val NANO = ScalarD(0.000_000_001)
+        val SEXA: ScalarD = ScalarD(60.0) // 60 times
+        val NEGATIVE_ONE: ScalarD = ScalarD(-1.0)
 
         @Throws(B3InvalidValidationException::class)
         fun of(raw: Double): ScalarD {
             val validRaw = raw
-                .validate(requirement = { it.isNaN() }, lazyMessage = { "No definition (NaN)." })
-                .validate(requirement = { it.isInfinite() }, lazyMessage = { "No infinite definition (Infinite)." })
+                .validate(requirement = { !it.isNaN() }, lazyMessage = { "No definition (NaN)." })
+                .validate(requirement = { !it.isInfinite() }, lazyMessage = { "No infinite definition (Infinite)." })
 
             return ScalarD(value = validRaw)
         }

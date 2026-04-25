@@ -8,8 +8,8 @@ import kotlin.math.abs
 @JvmInline
 value class ScalarL private constructor(val value: Long) : Scalable<ScalarL>, Calculatable<ScalarL> {
     companion object {
-        val ZERO: ScalarL = ScalarL(value = 0L)
-        val ONE = ScalarL(value = 1L)
+        val ZERO: ScalarL = ScalarL(0L)
+        val ONE = ScalarL(1L)
         val NEGATIVE = ScalarL(-1L)
 
         @Throws(B3InvalidValidationException::class)
