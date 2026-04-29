@@ -35,6 +35,9 @@ kotlin {
             implementation(libs.junit.jupiter)
             runtimeOnly("org.junit.platform:junit-platform-launcher")
         }
+        nativeMain.dependencies {
+            implementation(libs.kotlincrypto.hash.sha2)
+        }
     }
 
     jvmToolchain(21)

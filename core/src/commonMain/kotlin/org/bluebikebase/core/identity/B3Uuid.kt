@@ -1,4 +1,4 @@
-package org.bluebikebase.core.foundation
+package org.bluebikebase.core.identity
 
 import org.bluebikebase.core.error.B3InvalidValidationException
 import org.bluebikebase.core.rule.validate
@@ -7,22 +7,22 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 @JvmInline
-value class Identity @OptIn(ExperimentalUuidApi::class)
+value class B3Uuid @OptIn(ExperimentalUuidApi::class)
 @Throws(B3InvalidValidationException::class)
-private constructor(val id: Uuid) {
+private constructor(val id: Uuid) : UniqueID {
     companion object {
         @OptIn(ExperimentalUuidApi::class)
-        fun fromString(id: String): Identity {
+        fun fromString(id: String): UniqueID {
             val validId = id.validate(
                 run = { Uuid.parse(it) },
                 lazyMessage = { "Failed to generate identity (input: $it)." },
             )
 
-            return Identity(id = validId)
+            return B3Uuid(id = validId)
         }
 
         @OptIn(ExperimentalUuidApi::class)
-        fun gen(): Identity = Identity(Uuid.random())
+        fun gen(): UniqueID = B3Uuid(Uuid.random())
     }
 
     /**
